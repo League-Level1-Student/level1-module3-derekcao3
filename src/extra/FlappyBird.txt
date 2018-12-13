@@ -1,0 +1,41 @@
+  float x=150; 
+  float y=10;
+  float v = 1;
+  float g = .2;
+  float pipex = 750;
+  float pipeh = 300;
+  float pipex2 = 750;
+  float pipeh2 = 350;
+  float pipespeed = 4;
+void setup(){
+size(1000, 800);
+}
+
+void draw(){
+  v=v+g;
+y=y+v;
+pipex = pipex-pipespeed;
+pipex2 = pipex2-pipespeed;
+background(0,189,255);
+fill(254, 255, 67);
+stroke(0, 0, 0);
+ellipse(x, y, 30, 30);
+fill(0, 255, 40);
+rect(pipex, -5, 80, pipeh);
+fill(0, 255, 40);
+rect(pipex2, 450, 80, pipeh2);
+if(mousePressed){
+  v=v-.5;
+}
+teleportPipes();
+}
+
+void teleportPipes(){
+  if(pipex<-60){
+  pipex= 1000;
+  pipeh = random(100, 400);
+  }
+  if(pipex2<-60){
+  pipex2= 1000;
+}
+}
